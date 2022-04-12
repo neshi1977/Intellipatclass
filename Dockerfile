@@ -1,2 +1,2 @@
 FROM nginx
-COPY . /etc/nginx/nginx.conf
+COPY . /var/www/html
