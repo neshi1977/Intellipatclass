@@ -1,0 +1,4 @@
+This is auto staging in jenkins project
+
+Hello world
+
