@@ -1,6 +1,0 @@
-This is assignment 3 for auto triger multiple jobs
-
-
-This is again a commit
-
-This is next ommit
