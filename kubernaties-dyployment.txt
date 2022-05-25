@@ -1,0 +1,50 @@
+kubernaties deployment on ubuntu 22.04
+
+$ sudo apt update
+$ sudo apt install docker.io
+
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
+
+$ sudo apt install apt-transport-https curl
+
+$curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+
+$ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+$ sudo apt install kubeadm kubelet kubectl kubernetes-cni
+
+$sudo swapoff -a
+
+$sudo nano /etc/fstab 
+Inside this file, comment out the /swapfile line by preceeding it with a # symbol, as seen below. Then, close this file and save the changes.
+
+$ sudo hostnamectl set-hostname kubernetes-master
+
+$ sudo hostnamectl set-hostname kubernetes-worker
+
+$ sudo kubeadm init
+
+kubernetes-master:~$ mkdir -p $HOME/.kube
+kubernetes-master:~$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+kubernetes-master:~$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubernetes-master:~$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubernetes-master:~$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
+
+kubernetes-master:~$ kubectl get pods --all-namespaces
+
+kubernetes-master:~$ kubectl get nodes
+**********************************************************************************************************************************************
+Deploying a service on Kubernetes cluster
+
+kubernetes-master:~$ kubectl apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml
+kubernetes-master:~$ kubectl run --image=nginx nginx-server --port=80 --env="DOMAIN=cluster"
+kubernetes-master:~$ kubectl expose deployment nginx-deployment --port=80 --name=nginx-http
+
+kubernetes-worker:~$ sudo docker ps
+
+kubernetes-master:~$ kubectl get svc
+
+
+

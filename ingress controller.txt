@@ -1,0 +1,5 @@
+ingress controller
+
+https://github.com/rushtojp/devopsclassfiles/blob/master/Kubernetes/ingress%20demo.txt
+
+https://github.com/rushtojp/k8s-scripts/blob/main/ingress%20commands-tested.txt

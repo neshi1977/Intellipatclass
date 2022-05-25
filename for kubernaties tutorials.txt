@@ -1,0 +1,6 @@
+https://github.com/rushtojp/devopsclassfiles/blob/master/devops%20Practice%20resources/Resource%20Links.txt
+
+https://kubernetes.io/docs/tutorials/security/seccomp/
+
+https://www.katacoda.com/courses/kubernetes/playground
+
